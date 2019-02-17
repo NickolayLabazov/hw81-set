@@ -16,14 +16,13 @@ test('Добавление методом add одного игрока', () => 
   expect(received).toEqual(expected);
 });
 
-test('Добавление методом add 7 игроков с одним дублированием', () => {
+test('Добавление методом add 6 игроков', () => {
   const expected = ['Bowman', 'Swordsman', 'Magician', 'Undead', 'Zombie'];
 
   const team = new Team();
   team.add('Bowman');
   team.add('Swordsman');
   team.add('Magician');
-  team.add('Bowman');
   team.add('Undead');
   team.add('Zombie');
   team.add('Daemon');
@@ -63,4 +62,12 @@ test('Добавление методом addAll игрока, не входящ
   team.addAll(['Посторонний персонаж']);
   const received = team.toArray();
   expect(received).toEqual(expected);
+});
+
+test('Генерация ошибки при повторном вводе персонаж методом add', () => {
+  const team = new Team();
+  team.add('Bowman');
+  expect(() => {
+    team.add('Bowman');
+  }).toThrow();
 });

@@ -6,6 +6,7 @@ export default class Team {
 
   add(hero) {
     if (this.character.indexOf(hero) >= 0) {
+      if (this.set.has(hero)) { throw ('Персонаж уже добавлен'); }
       if (this.set.size < 5) {
         this.set.add(hero);
       }
