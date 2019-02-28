@@ -48,22 +48,6 @@ test('Добавление методом addAll 7 игроков с дубли�
   expect(received).toEqual(expected);
 });
 
-test('Добавление методом add игрока, не входящего в character', () => {
-  const expected = [];
-  const team = new Team();
-  team.add('Посторонний персонаж');
-  const received = team.toArray();
-  expect(received).toEqual(expected);
-});
-
-test('Добавление методом addAll игрока, не входящего в character', () => {
-  const expected = [];
-  const team = new Team();
-  team.addAll(['Посторонний персонаж']);
-  const received = team.toArray();
-  expect(received).toEqual(expected);
-});
-
 test('Генерация ошибки при повторном вводе персонаж методом add', () => {
   const team = new Team();
   team.add('Bowman');
